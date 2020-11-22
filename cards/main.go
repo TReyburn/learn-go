@@ -1,1 +1,5 @@
-package cards
+package main
+
+func main() {
+
+}
