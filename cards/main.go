@@ -5,7 +5,3 @@ func main() {
 	cards.shuffle()
 	cards.print()
 }
-
-func newCard() string {
-	return "Five of Diamonds"
-}
