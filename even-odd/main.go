@@ -11,7 +11,7 @@ func main() {
 
 	// Using modulus to check if number is even or odd for each int in our slice
 	for _, n := range s {
-		if n % 2 != 0 {
+		if n%2 != 0 {
 			fmt.Println(n, "is odd")
 		} else {
 			fmt.Println(n, "is even")
