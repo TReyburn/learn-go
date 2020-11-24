@@ -46,10 +46,12 @@ func newDeckFromFile(filename string) deck {
 	bs, err := ioutil.ReadFile(filename)
 	if err != nil {
 		fmt.Println("Error:", err)
-		// Option 1 - return newDeck()
+		// Option 1 - log the error and return newDeck()
 		// return newDeck()
 		// Option 2 - log the error and quit
 		os.Exit(1)
 	}
-	return deck(strings.Split(string(bs), ","))
+
+	s := strings.Split(string(bs), ",")
+	return deck(s)
 }
