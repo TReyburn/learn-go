@@ -6,14 +6,16 @@ func main() {
 	colors := map[string]string{
 		"red": "#ff000",
 		"green": "#4b781",
+		"white": "#fffff",
 	}
-	delete(colors, "red")
+
 	fmt.Println(colors)
 
-	var otherColors map[string]string
-	fmt.Println(otherColors)
+	printMap(colors)
+}
 
-	anotherColors := make(map[string]string)
-	anotherColors["black"] = "#0000"
-	fmt.Println(anotherColors)
+func printMap(m map[string]string) {
+	for k, v := range m {
+		fmt.Println(k, v)
+	}
 }
