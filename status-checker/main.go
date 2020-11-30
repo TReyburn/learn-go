@@ -19,18 +19,23 @@ func main() {
 		"http://www.solveigdelabroye.me",
 	}
 
+	c := make(chan string)
+
 	for _, u := range urls {
-		checkUrl(u)
+		go checkUrl(u, c)
 	}
+	fmt.Println(<-c)
 }
 
-func checkUrl(url string) {
+func checkUrl(url string, c chan string) {
 	_, err := http.Get(url)
 
 	if err != nil {
 		fmt.Println("Status:", url, "might be down.")
+		c <- "Might be down"
 		return
 	}
 
 	fmt.Println("Status:", url, "is up.")
+	c <- "Is up"
 }
