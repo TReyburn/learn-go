@@ -26,13 +26,15 @@ func main() {
 		go checkUrl(u, c)
 	}
 
-	for {
-		go checkUrl(<-c, c)
+	for l := range c{
+		go func(url string) {
+			time.Sleep(10 * time.Second)
+			checkUrl(url, c)
+		}(l)
 	}
 }
 
 func checkUrl(url string, c chan string) {
-	time.Sleep(5 * time.Second)
 	_, err := http.Get(url)
 
 	if err != nil {
